@@ -1,49 +1,47 @@
 package com.interview.prep;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.*;
+import org.junit.Test;
 
-class ReverseStringTest {
+public class ReverseStringTest {
 
     @Test
-    void testReverseRegularString() {
+    public void testReverseRegularString() {
         String input = "Hello World!";
         String expected = "!dlroW olleH";
         assertEquals(expected, ReverseString.reverse(input));
     }
 
     @Test
-    void testReverseEmptyString() {
+    public void testReverseEmptyString() {
         String input = "";
         String expected = "";
         assertEquals(expected, ReverseString.reverse(input));
     }
 
     @Test
-    void testReverseSingleCharacter() {
+    public void testReverseSingleCharacter() {
         String input = "A";
         String expected = "A";
         assertEquals(expected, ReverseString.reverse(input));
     }
 
     @Test
-    void testReversePalindrome() {
+    public void testReversePalindrome() {
         String input = "madam";
         String expected = "madam";
         assertEquals(expected, ReverseString.reverse(input));
     }
 
     @Test
-    void testReverseWithSpaces() {
+    public void testReverseWithSpaces() {
         String input = " a b ";
         String expected = " b a ";
         assertEquals(expected, ReverseString.reverse(input));
     }
 
-    @Test
-    void testReverseNull() {
-        assertThrows(NullPointerException.class, () -> {
-            ReverseString.reverse(null);
-        });
+    @Test(expected = NullPointerException.class)
+    public void testReverseNull() {
+        ReverseString.reverse(null);
     }
 }
